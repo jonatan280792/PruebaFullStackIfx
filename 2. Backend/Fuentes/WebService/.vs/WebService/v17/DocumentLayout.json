@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "ServiceUrl\\appsettings.Development.json",
               "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\ServiceUrl\\appsettings.Development.json",
               "RelativeToolTip": "ServiceUrl\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-09-14T00:43:48.898Z",
               "EditorCaption": ""
@@ -79,8 +79,7 @@
               "RelativeToolTip": "Security\\Helpers\\Config.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T00:05:05.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-14T00:05:05.481Z"
             },
             {
               "$type": "Document",
@@ -92,8 +91,7 @@
               "RelativeToolTip": "Security\\Services\\TokenServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T00:04:19.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-14T00:04:19.044Z"
             },
             {
               "$type": "Document",
@@ -105,8 +103,7 @@
               "RelativeToolTip": "Repository\\Helpers\\DBContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T00:03:11.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-14T00:03:11.028Z"
             },
             {
               "$type": "Document",
@@ -118,8 +115,7 @@
               "RelativeToolTip": "Entity\\Mappers\\GestorMapper.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwBgAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T22:16:39.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T22:16:39.471Z"
             },
             {
               "$type": "Document",
@@ -131,8 +127,7 @@
               "RelativeToolTip": "Entity\\Dtos\\EmpleadoDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T21:10:11.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T21:10:11.26Z"
             },
             {
               "$type": "Document",
@@ -144,8 +139,7 @@
               "RelativeToolTip": "Entity\\Dtos\\PropiedadesTablaDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T18:49:37.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T18:49:37.959Z"
             },
             {
               "$type": "Document",
@@ -157,8 +151,7 @@
               "RelativeToolTip": "ServiceUrl\\Controllers\\usuariosController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T17:37:22.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T17:37:22.282Z"
             },
             {
               "$type": "Document",
@@ -170,8 +163,7 @@
               "RelativeToolTip": "Business\\Services\\GestorServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T17:04:53.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T17:04:53.698Z"
             },
             {
               "$type": "Document",
@@ -183,8 +175,7 @@
               "RelativeToolTip": "Repository\\Repositories\\GestorRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T16:56:01.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T16:56:01.642Z"
             },
             {
               "$type": "Document",
@@ -196,8 +187,7 @@
               "RelativeToolTip": "ServiceUrl\\Controllers\\gestorController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T16:53:43.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T16:53:43.116Z"
             }
           ]
         }

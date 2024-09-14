@@ -1,7 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalService } from '@common/modal/modal.service';
 import { UsuarioModelDto } from '@models/usuarioModelDto';
 import { ThemeService } from '@services/theme-service';
 import { SessionService } from '@utils/session-util';
+import { sessionPersistence } from '@utils/storage-util';
 
 @Component({
   selector: 'screen-header',
@@ -33,7 +36,9 @@ export class HeaderComponent implements OnInit {
   public language: string;
 
   constructor(
+    private modalService: ModalService,
     public sessionService: SessionService,
+    private router: Router,
   ) {
     this.userLogin = this.sessionService.getSessionData();
   }
@@ -47,8 +52,20 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    this.closeAllModals();
+    this.sessionService.removeSessionData();
+    this.sessionService.removeToken();
+    this.router.navigateByUrl('/');
+
     this.sessionService.removeAllLocalStorage();
     this.sessionService.removeAllSesionStorage();
-    window.location.href = 'http://localhost:4200/#';
+  }
+
+  private closeAllModals() {
+    const modalOpen = sessionPersistence.get('idModal');
+ 
+    if (modalOpen) {
+      this.modalService.close(modalOpen);
+    }
   }
 }
