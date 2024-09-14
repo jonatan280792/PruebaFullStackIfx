@@ -1,0 +1,386 @@
+USE [Company]
+GO
+/****** Object:  StoredProcedure [dbo].[delete_Empleados]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Elimina un empleado>
+-- =============================================
+CREATE PROCEDURE [dbo].[delete_Empleados]
+	@id INT
+AS
+BEGIN
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- ELIMINA EL REGISTRO
+		DELETE FROM [dbo].[Empleados] WHERE idEmpleado = @id
+
+		SELECT 1 Transaccion, 'Registro eliminado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al eliminar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[delete_Entidades]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Elimina un empresa>
+-- =============================================
+CREATE PROCEDURE [dbo].[delete_Entidades]
+	@id INT
+AS
+BEGIN
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- ELIMINA EL REGISTRO
+		DELETE FROM [dbo].[Entidades] WHERE idEntidad = @id
+
+		SELECT 1 Transaccion, 'Registro eliminado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al eliminar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Empleados]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene los registros de los empleados>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Empleados]
+	@idEntidad INT,
+	@estado BIT
+AS
+BEGIN
+	SELECT
+		idEmpleado,
+		nombres,
+		apellidos,
+		idEntidad,
+		estado,
+		fechaIngreso,
+		fechaCreacion
+	FROM [dbo].[Empleados]
+	WHERE idEntidad = @idEntidad
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Entidades]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene los registros de las entidades>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Entidades]
+	@estado BIT
+AS
+BEGIN
+	SELECT 
+		idEntidad,
+		entidad,
+		sector,
+		direccion,
+		estado,
+		descripcion,
+		fechaCreacion
+	FROM [dbo].[Entidades]
+	WHERE estado = @estado
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Login]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Loguea al usuario>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Login]
+	@userName VARCHAR(45),
+	@passWord VARCHAR(45),
+	@status BIT
+AS
+BEGIN
+	DECLARE
+		@id int
+
+	SELECT TOP 1
+		@id = [idUsuario]
+	FROM [dbo].[Usuarios]
+		WHERE [usuario] = @userName
+		AND [password] = @passWord
+		AND [estado] = @status
+
+
+	IF (@id IS NOT NULL)
+	BEGIN
+		SELECT TOP 1
+			[idUsuario],
+			[Usuario],
+			[nombreUsuario],
+			[rol],
+			[estado],
+			[fechaCreacion],
+			'Ok' [codigo]
+		FROM [dbo].[Usuarios]
+			WHERE [usuario] = @userName
+			AND [password] = @passWord
+	END
+	ELSE
+	BEGIN
+		SELECT 
+			'Error' [codigo]
+	END;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Propiedades]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene las propiedades de una tabla>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Propiedades]
+	@nombreTabla VARCHAR(15)
+AS
+BEGIN
+	DECLARE
+		@id int
+
+	SELECT 
+		c.column_id as idCampo,
+		c.name as nombreCampo,
+		TYPE_NAME(c.user_type_id) AS tipoCampo,
+		c.max_length AS longitud,
+		CASE
+			WHEN (c.is_nullable = 'true') THEN 0
+			WHEN (c.column_id = 1) THEN 0
+			ELSE 1
+		END AS obligatorio
+		--s.name as schema_name, t.name as table_name, c.*, TYPE_NAME(c.user_type_id) AS type_name
+	FROM sys.objects AS o    
+	JOIN sys.columns AS c  ON o.object_id = c.object_id  
+	INNER JOIN sys.tables AS t ON t.object_id = c.object_id
+	INNER JOIN sys.schemas AS s ON s.schema_id = t.schema_id
+	WHERE t.name = @nombreTabla AND s.name = 'dbo';
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[put_Empleados]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Actualiza una empresa por id>
+-- =============================================
+CREATE PROCEDURE [dbo].[put_Empleados]
+	@id INT,
+	@nombres VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@idEntidad INT,
+	@estado BIT
+AS
+BEGIN
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		UPDATE [dbo].[Empleados] SET
+			[nombres] = @nombres,
+			[apellidos] = @apellidos,
+			-- [idEntidad] = @idEntidad,
+			[estado] = @estado			
+		WHERE idEmpleado = @id
+
+		SELECT @id Transaccion, 'Empleado actualizado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al actualizar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[put_Entidades]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Actuañiza una empresa>
+-- =============================================
+CREATE PROCEDURE [dbo].[put_Entidades]
+	@id INT,
+	@entidad VARCHAR(50),
+	@sector VARCHAR(50),
+	@direccion VARCHAR(50),
+	@estado BIT,
+	@descripcion VARCHAR(50)
+AS
+BEGIN
+	DECLARE
+	--OBTENGO LA FECHA ACTUAL PARA SU CORRESPONDIENTE REGISTRO
+		@fecha_registro DATETIME = GETDATE()
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		UPDATE [dbo].[Entidades] SET
+			[entidad] = @entidad,
+			[sector] = @sector,
+			[direccion] = @direccion,
+			[estado] = @estado,
+			[descripcion] = @descripcion
+		WHERE idEntidad = @id
+
+		SELECT 1 Transaccion, 'Empresa actualizada exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al actualizar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[set_Empleados]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene los registros de los empleados>
+-- =============================================
+CREATE PROCEDURE [dbo].[set_Empleados]
+	@nombres VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@idEntidad INT,
+	@estado BIT
+AS
+BEGIN
+	DECLARE
+	--OBTENGO LA FECHA ACTUAL PARA SU CORRESPONDIENTE REGISTRO
+		@fecha_registro DATETIME = GETDATE()
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- INSERTA UNA NUEVA AERONAVE
+		INSERT INTO [dbo].[Empleados] 
+		(
+			nombres,
+			apellidos,
+			idEntidad,
+			estado,
+			fechaIngreso,
+			fechaCreacion
+		) VALUES 
+		(
+			@nombres,
+			@apellidos,
+			@idEntidad,
+			@estado,
+			GETDATE(),
+			GETDATE()
+		)
+
+		SELECT @idEntidad Transaccion, 'Empleado creado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al crear el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[set_Entidades]    Script Date: 13/09/2024 9:56:23 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Crea una empresa>
+-- =============================================
+CREATE PROCEDURE [dbo].[set_Entidades]
+	@entidad VARCHAR(50),
+	@sector VARCHAR(50),
+	@direccion VARCHAR(50),
+	@estado BIT,
+	@descripcion VARCHAR(50)
+AS
+BEGIN
+	DECLARE
+	--OBTENGO LA FECHA ACTUAL PARA SU CORRESPONDIENTE REGISTRO
+		@fecha_registro DATETIME = GETDATE()
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- INSERTA UNA NUEVA AERONAVE
+		INSERT INTO [dbo].[Entidades] 
+		(
+			entidad,
+			sector,
+			direccion,
+			estado,
+			descripcion,
+			fechaCreacion
+		) VALUES 
+		(
+			@entidad,
+			@sector,
+			@direccion,
+			@estado,
+			@descripcion,
+			GETDATE()
+		)
+
+		SELECT 1 Transaccion, 'Empresa creada exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al crear el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
