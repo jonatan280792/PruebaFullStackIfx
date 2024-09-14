@@ -1,0 +1,617 @@
+USE [Company]
+GO
+/****** Object:  StoredProcedure [dbo].[set_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[set_Entidades]
+GO
+/****** Object:  StoredProcedure [dbo].[set_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[set_Empleados]
+GO
+/****** Object:  StoredProcedure [dbo].[put_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[put_Entidades]
+GO
+/****** Object:  StoredProcedure [dbo].[put_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[put_Empleados]
+GO
+/****** Object:  StoredProcedure [dbo].[get_Propiedades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[get_Propiedades]
+GO
+/****** Object:  StoredProcedure [dbo].[get_Login]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[get_Login]
+GO
+/****** Object:  StoredProcedure [dbo].[get_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[get_Entidades]
+GO
+/****** Object:  StoredProcedure [dbo].[get_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[get_Empleados]
+GO
+/****** Object:  StoredProcedure [dbo].[delete_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[delete_Entidades]
+GO
+/****** Object:  StoredProcedure [dbo].[delete_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP PROCEDURE [dbo].[delete_Empleados]
+GO
+ALTER TABLE [dbo].[Empleados] DROP CONSTRAINT [FK_Empleados_Entidades]
+GO
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Usuarios]') AND type in (N'U'))
+DROP TABLE [dbo].[Usuarios]
+GO
+/****** Object:  Table [dbo].[Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Entidades]') AND type in (N'U'))
+DROP TABLE [dbo].[Entidades]
+GO
+/****** Object:  Table [dbo].[Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Empleados]') AND type in (N'U'))
+DROP TABLE [dbo].[Empleados]
+GO
+/****** Object:  Schema [identity]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP SCHEMA [identity]
+GO
+/****** Object:  Schema [data]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP SCHEMA [data]
+GO
+USE [master]
+GO
+/****** Object:  Database [Company]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+DROP DATABASE [Company]
+GO
+/****** Object:  Database [Company]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+CREATE DATABASE [Company]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Company', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Company.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Company_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Company_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [Company] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Company].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Company] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Company] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Company] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Company] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Company] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Company] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Company] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Company] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Company] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Company] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Company] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Company] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Company] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Company] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Company] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Company] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Company] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Company] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Company] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Company] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Company] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Company] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Company] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [Company] SET  MULTI_USER 
+GO
+ALTER DATABASE [Company] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Company] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Company] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Company] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Company] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Company] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [Company] SET QUERY_STORE = OFF
+GO
+USE [Company]
+GO
+/****** Object:  Schema [data]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+CREATE SCHEMA [data]
+GO
+/****** Object:  Schema [identity]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+CREATE SCHEMA [identity]
+GO
+/****** Object:  Table [dbo].[Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Empleados](
+	[idEmpleado] [int] IDENTITY(1,1) NOT NULL,
+	[nombres] [varchar](50) NOT NULL,
+	[apellidos] [varchar](50) NOT NULL,
+	[idEntidad] [int] NULL,
+	[estado] [bit] NOT NULL,
+	[fechaIngreso] [datetime] NULL,
+	[fechaCreacion] [datetime] NULL,
+ CONSTRAINT [PK_Empleados] PRIMARY KEY CLUSTERED 
+(
+	[idEmpleado] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Entidades](
+	[idEntidad] [int] IDENTITY(1,1) NOT NULL,
+	[entidad] [varchar](50) NOT NULL,
+	[sector] [varchar](50) NULL,
+	[direccion] [varchar](50) NULL,
+	[estado] [bit] NULL,
+	[descripcion] [varchar](300) NULL,
+	[fechaCreacion] [datetime] NULL,
+ CONSTRAINT [PK_Entidades] PRIMARY KEY CLUSTERED 
+(
+	[idEntidad] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuarios](
+	[idUsuario] [int] IDENTITY(1,1) NOT NULL,
+	[usuario] [varchar](10) NULL,
+	[password] [varchar](50) NULL,
+	[nombreUsuario] [varchar](50) NULL,
+	[rol] [char](1) NULL,
+	[estado] [bit] NULL,
+	[fechaCreacion] [datetime] NULL,
+ CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED 
+(
+	[idUsuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Empleados] ON 
+GO
+INSERT [dbo].[Empleados] ([idEmpleado], [nombres], [apellidos], [idEntidad], [estado], [fechaIngreso], [fechaCreacion]) VALUES (1, N'JONATAN', N'ROJAS', 1, 1, CAST(N'2024-09-13T16:31:22.967' AS DateTime), CAST(N'2024-09-13T16:31:22.967' AS DateTime))
+GO
+INSERT [dbo].[Empleados] ([idEmpleado], [nombres], [apellidos], [idEntidad], [estado], [fechaIngreso], [fechaCreacion]) VALUES (3, N'TEST2', N'TEST2', 4, 1, CAST(N'2024-09-13T18:47:03.380' AS DateTime), CAST(N'2024-09-13T18:47:03.380' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Empleados] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Entidades] ON 
+GO
+INSERT [dbo].[Entidades] ([idEntidad], [entidad], [sector], [direccion], [estado], [descripcion], [fechaCreacion]) VALUES (1, N'IFX Networks', N'Tegnologico', N'Calle falsa 123', 1, N'Una empresa es la entidad organizada donde hay una', CAST(N'2024-07-28T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Entidades] ([idEntidad], [entidad], [sector], [direccion], [estado], [descripcion], [fechaCreacion]) VALUES (4, N'Empresa de prueba', N'Mercadeo', N'Crr 456 #45', 1, N'Sep 13 2024  4:56PM', CAST(N'2024-09-13T16:56:38.320' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Entidades] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Usuarios] ON 
+GO
+INSERT [dbo].[Usuarios] ([idUsuario], [usuario], [password], [nombreUsuario], [rol], [estado], [fechaCreacion]) VALUES (13, N'admin', N'1234', N'Jonatan Rojas', N'1', 1, CAST(N'2024-09-12T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Usuarios] ([idUsuario], [usuario], [password], [nombreUsuario], [rol], [estado], [fechaCreacion]) VALUES (14, N'invitado', N'1234', N'Invitado', N'2', 1, CAST(N'2024-09-12T00:00:00.000' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Usuarios] OFF
+GO
+ALTER TABLE [dbo].[Empleados]  WITH CHECK ADD  CONSTRAINT [FK_Empleados_Entidades] FOREIGN KEY([idEntidad])
+REFERENCES [dbo].[Entidades] ([idEntidad])
+GO
+ALTER TABLE [dbo].[Empleados] CHECK CONSTRAINT [FK_Empleados_Entidades]
+GO
+/****** Object:  StoredProcedure [dbo].[delete_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Elimina un empleado>
+-- =============================================
+CREATE PROCEDURE [dbo].[delete_Empleados]
+	@id INT
+AS
+BEGIN
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- ELIMINA EL REGISTRO
+		DELETE FROM [dbo].[Empleados] WHERE idEmpleado = @id
+
+		SELECT 1 Transaccion, 'Registro eliminado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al eliminar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[delete_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Elimina un empresa>
+-- =============================================
+CREATE PROCEDURE [dbo].[delete_Entidades]
+	@id INT
+AS
+BEGIN
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- ELIMINA EL REGISTRO
+		DELETE FROM [dbo].[Entidades] WHERE idEntidad = @id
+
+		SELECT 1 Transaccion, 'Registro eliminado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al eliminar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene los registros de los empleados>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Empleados]
+	@idEntidad INT,
+	@estado BIT
+AS
+BEGIN
+	SELECT
+		idEmpleado,
+		nombres,
+		apellidos,
+		idEntidad,
+		estado,
+		fechaIngreso,
+		fechaCreacion
+	FROM [dbo].[Empleados]
+	WHERE idEntidad = @idEntidad
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene los registros de las entidades>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Entidades]
+	@estado BIT
+AS
+BEGIN
+	SELECT 
+		idEntidad,
+		entidad,
+		sector,
+		direccion,
+		estado,
+		descripcion,
+		fechaCreacion
+	FROM [dbo].[Entidades]
+	WHERE estado = @estado
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Login]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Loguea al usuario>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Login]
+	@userName VARCHAR(45),
+	@passWord VARCHAR(45),
+	@status BIT
+AS
+BEGIN
+	DECLARE
+		@id int
+
+	SELECT TOP 1
+		@id = [idUsuario]
+	FROM [dbo].[Usuarios]
+		WHERE [usuario] = @userName
+		AND [password] = @passWord
+		AND [estado] = @status
+
+
+	IF (@id IS NOT NULL)
+	BEGIN
+		SELECT TOP 1
+			[idUsuario],
+			[Usuario],
+			[nombreUsuario],
+			[rol],
+			[estado],
+			[fechaCreacion],
+			'Ok' [codigo]
+		FROM [dbo].[Usuarios]
+			WHERE [usuario] = @userName
+			AND [password] = @passWord
+	END
+	ELSE
+	BEGIN
+		SELECT 
+			'Error' [codigo]
+	END;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[get_Propiedades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene las propiedades de una tabla>
+-- =============================================
+CREATE PROCEDURE [dbo].[get_Propiedades]
+	@nombreTabla VARCHAR(15)
+AS
+BEGIN
+	DECLARE
+		@id int
+
+	SELECT 
+		c.column_id as idCampo,
+		c.name as nombreCampo,
+		TYPE_NAME(c.user_type_id) AS tipoCampo,
+		c.max_length AS longitud,
+		CASE
+			WHEN (c.is_nullable = 'true') THEN 0
+			WHEN (c.column_id = 1) THEN 0
+			ELSE 1
+		END AS obligatorio
+		--s.name as schema_name, t.name as table_name, c.*, TYPE_NAME(c.user_type_id) AS type_name
+	FROM sys.objects AS o    
+	JOIN sys.columns AS c  ON o.object_id = c.object_id  
+	INNER JOIN sys.tables AS t ON t.object_id = c.object_id
+	INNER JOIN sys.schemas AS s ON s.schema_id = t.schema_id
+	WHERE t.name = @nombreTabla AND s.name = 'dbo';
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[put_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Actualiza una empresa por id>
+-- =============================================
+CREATE PROCEDURE [dbo].[put_Empleados]
+	@id INT,
+	@nombres VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@idEntidad INT,
+	@estado BIT
+AS
+BEGIN
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		UPDATE [dbo].[Empleados] SET
+			[nombres] = @nombres,
+			[apellidos] = @apellidos,
+			-- [idEntidad] = @idEntidad,
+			[estado] = @estado			
+		WHERE idEmpleado = @id
+
+		SELECT @id Transaccion, 'Empleado actualizado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al actualizar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[put_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Actuañiza una empresa>
+-- =============================================
+CREATE PROCEDURE [dbo].[put_Entidades]
+	@id INT,
+	@entidad VARCHAR(50),
+	@sector VARCHAR(50),
+	@direccion VARCHAR(50),
+	@estado BIT,
+	@descripcion VARCHAR(50)
+AS
+BEGIN
+	DECLARE
+	--OBTENGO LA FECHA ACTUAL PARA SU CORRESPONDIENTE REGISTRO
+		@fecha_registro DATETIME = GETDATE()
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		UPDATE [dbo].[Entidades] SET
+			[entidad] = @entidad,
+			[sector] = @sector,
+			[direccion] = @direccion,
+			[estado] = @estado,
+			[descripcion] = @descripcion
+		WHERE idEntidad = @id
+
+		SELECT 1 Transaccion, 'Empresa actualizada exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al actualizar el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[set_Empleados]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Obtiene los registros de los empleados>
+-- =============================================
+CREATE PROCEDURE [dbo].[set_Empleados]
+	@nombres VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@idEntidad INT,
+	@estado BIT
+AS
+BEGIN
+	DECLARE
+	--OBTENGO LA FECHA ACTUAL PARA SU CORRESPONDIENTE REGISTRO
+		@fecha_registro DATETIME = GETDATE()
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- INSERTA UNA NUEVA AERONAVE
+		INSERT INTO [dbo].[Empleados] 
+		(
+			nombres,
+			apellidos,
+			idEntidad,
+			estado,
+			fechaIngreso,
+			fechaCreacion
+		) VALUES 
+		(
+			@nombres,
+			@apellidos,
+			@idEntidad,
+			@estado,
+			GETDATE(),
+			GETDATE()
+		)
+
+		SELECT @idEntidad Transaccion, 'Empleado creado exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al crear el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[set_Entidades]    Script Date: 13/09/2024 6:50:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author, Jonatan Alexander Rojas>
+-- Create date: <Create Date, 2024/09/12>
+-- Description:	<Description, Crea una empresa>
+-- =============================================
+CREATE PROCEDURE [dbo].[set_Entidades]
+	@entidad VARCHAR(50),
+	@sector VARCHAR(50),
+	@direccion VARCHAR(50),
+	@estado BIT,
+	@descripcion VARCHAR(50)
+AS
+BEGIN
+	DECLARE
+	--OBTENGO LA FECHA ACTUAL PARA SU CORRESPONDIENTE REGISTRO
+		@fecha_registro DATETIME = GETDATE()
+
+	-- MANEJADOR DE EVENTOS
+	BEGIN TRY
+	
+		-- INSERTA UNA NUEVA AERONAVE
+		INSERT INTO [dbo].[Entidades] 
+		(
+			entidad,
+			sector,
+			direccion,
+			estado,
+			descripcion,
+			fechaCreacion
+		) VALUES 
+		(
+			@entidad,
+			@sector,
+			@direccion,
+			@estado,
+			@descripcion,
+			GETDATE()
+		)
+
+		SELECT 1 Transaccion, 'Empresa creada exitosamente' Mensaje, 'Ok' Estado
+	
+	END TRY  
+	BEGIN CATCH  
+		 SELECT -1 Transaccion, 'Error al crear el registro' Mensaje, 'Error' Estado
+	END CATCH
+
+END
+GO
+USE [master]
+GO
+ALTER DATABASE [Company] SET  READ_WRITE 
+GO

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <ConfigFile>    
+	<SQL>Data Source=DESKTOP-PV8VLI4\SQLEXPRESS;Initial Catalog=Company;persist security info=True;Integrated Security=SSPI;timeout = 180</SQL>
+  </ConfigFile>
+</DocumentElement>

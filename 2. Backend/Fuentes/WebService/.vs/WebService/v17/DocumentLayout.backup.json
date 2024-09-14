@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B239E09E-3142-4E3A-9DC5-28C8B86DCE8D}|ServiceUrl\\ServiceUrl.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\serviceurl\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B239E09E-3142-4E3A-9DC5-28C8B86DCE8D}|ServiceUrl\\ServiceUrl.csproj|solutionrelative:serviceurl\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DA3BCC8-32D3-4C93-B50C-22CB8801D859}|Repository\\Repository.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\repository\\helpers\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DA3BCC8-32D3-4C93-B50C-22CB8801D859}|Repository\\Repository.csproj|solutionrelative:repository\\helpers\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4795A6B6-7EDD-4423-B46B-1575D661268D}|Security\\Security.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\security\\helpers\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4795A6B6-7EDD-4423-B46B-1575D661268D}|Security\\Security.csproj|solutionrelative:security\\helpers\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4795A6B6-7EDD-4423-B46B-1575D661268D}|Security\\Security.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\security\\services\\tokenservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4795A6B6-7EDD-4423-B46B-1575D661268D}|Security\\Security.csproj|solutionrelative:security\\services\\tokenservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B239E09E-3142-4E3A-9DC5-28C8B86DCE8D}|ServiceUrl\\ServiceUrl.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\serviceurl\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B239E09E-3142-4E3A-9DC5-28C8B86DCE8D}|ServiceUrl\\ServiceUrl.csproj|solutionrelative:serviceurl\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B239E09E-3142-4E3A-9DC5-28C8B86DCE8D}|ServiceUrl\\ServiceUrl.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\serviceurl\\controllers\\gestorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B239E09E-3142-4E3A-9DC5-28C8B86DCE8D}|ServiceUrl\\ServiceUrl.csproj|solutionrelative:serviceurl\\controllers\\gestorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DA3BCC8-32D3-4C93-B50C-22CB8801D859}|Repository\\Repository.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\repository\\repositories\\gestorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DA3BCC8-32D3-4C93-B50C-22CB8801D859}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\gestorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F090209-E23D-44E0-83C8-2323FE6D618C}|Business\\Business.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\business\\services\\gestorservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F090209-E23D-44E0-83C8-2323FE6D618C}|Business\\Business.csproj|solutionrelative:business\\services\\gestorservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48B5936-CDA2-4A96-AF0D-5F96E79AFC44}|Entity\\Entity.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\entity\\mappers\\gestormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E48B5936-CDA2-4A96-AF0D-5F96E79AFC44}|Entity\\Entity.csproj|solutionrelative:entity\\mappers\\gestormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48B5936-CDA2-4A96-AF0D-5F96E79AFC44}|Entity\\Entity.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\entity\\dtos\\empleadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E48B5936-CDA2-4A96-AF0D-5F96E79AFC44}|Entity\\Entity.csproj|solutionrelative:entity\\dtos\\empleadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48B5936-CDA2-4A96-AF0D-5F96E79AFC44}|Entity\\Entity.csproj|c:\\users\\ryzen 9\\documents\\github\\pruebafullstackifx\\2. backend\\fuentes\\webservice\\entity\\dtos\\propiedadestabladto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E48B5936-CDA2-4A96-AF0D-5F96E79AFC44}|Entity\\Entity.csproj|solutionrelative:entity\\dtos\\propiedadestabladto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\ServiceUrl\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "ServiceUrl\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\ServiceUrl\\appsettings.Development.json",
+              "RelativeToolTip": "ServiceUrl\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-14T00:43:48.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Config.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Security\\Helpers\\Config.cs",
+              "RelativeDocumentMoniker": "Security\\Helpers\\Config.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Security\\Helpers\\Config.cs",
+              "RelativeToolTip": "Security\\Helpers\\Config.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T00:05:05.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TokenServices.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Security\\Services\\TokenServices.cs",
+              "RelativeDocumentMoniker": "Security\\Services\\TokenServices.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Security\\Services\\TokenServices.cs",
+              "RelativeToolTip": "Security\\Services\\TokenServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T00:04:19.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Repository\\Helpers\\DBContext.cs",
+              "RelativeDocumentMoniker": "Repository\\Helpers\\DBContext.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Repository\\Helpers\\DBContext.cs",
+              "RelativeToolTip": "Repository\\Helpers\\DBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T00:03:11.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GestorMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Entity\\Mappers\\GestorMapper.cs",
+              "RelativeDocumentMoniker": "Entity\\Mappers\\GestorMapper.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Entity\\Mappers\\GestorMapper.cs",
+              "RelativeToolTip": "Entity\\Mappers\\GestorMapper.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T22:16:39.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EmpleadoDto.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Entity\\Dtos\\EmpleadoDto.cs",
+              "RelativeDocumentMoniker": "Entity\\Dtos\\EmpleadoDto.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Entity\\Dtos\\EmpleadoDto.cs",
+              "RelativeToolTip": "Entity\\Dtos\\EmpleadoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T21:10:11.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PropiedadesTablaDto.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Entity\\Dtos\\PropiedadesTablaDto.cs",
+              "RelativeDocumentMoniker": "Entity\\Dtos\\PropiedadesTablaDto.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Entity\\Dtos\\PropiedadesTablaDto.cs",
+              "RelativeToolTip": "Entity\\Dtos\\PropiedadesTablaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T18:49:37.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "usuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\ServiceUrl\\Controllers\\usuariosController.cs",
+              "RelativeDocumentMoniker": "ServiceUrl\\Controllers\\usuariosController.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\ServiceUrl\\Controllers\\usuariosController.cs",
+              "RelativeToolTip": "ServiceUrl\\Controllers\\usuariosController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T17:37:22.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GestorServices.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Business\\Services\\GestorServices.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\GestorServices.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Business\\Services\\GestorServices.cs",
+              "RelativeToolTip": "Business\\Services\\GestorServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T17:04:53.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GestorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Repository\\Repositories\\GestorRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\GestorRepository.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\Repository\\Repositories\\GestorRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\GestorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T16:56:01.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "gestorController.cs",
+              "DocumentMoniker": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\ServiceUrl\\Controllers\\gestorController.cs",
+              "RelativeDocumentMoniker": "ServiceUrl\\Controllers\\gestorController.cs",
+              "ToolTip": "C:\\Users\\Ryzen 9\\Documents\\gitHub\\PruebaFullStackIfx\\2. Backend\\Fuentes\\WebService\\ServiceUrl\\Controllers\\gestorController.cs",
+              "RelativeToolTip": "ServiceUrl\\Controllers\\gestorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T16:53:43.116Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

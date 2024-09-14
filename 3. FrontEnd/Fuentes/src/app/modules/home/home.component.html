@@ -1,0 +1,114 @@
+<screen-header></screen-header>
+
+<section class="home">
+  <div class="container">
+    
+
+    <div class="row title-page">
+      <div class="col-6">
+        <h1>Administrador de empresas</h1>
+      </div>
+      <div class="col-6">
+        <button mat-raised-button color="primary" (click)="modeModal = 'new'; processAction('Entidades', null)" [disabled]="userLogin.rol == 2" type="button">Crear Empresa</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <mat-accordion class="acoordion-section">
+          <mat-expansion-panel *ngFor="let entidad of listEntidades" (opened)="panelOpenState.set(true); openEmpresa(entidad)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+              <mat-panel-title> {{ entidad.entidad }} </mat-panel-title>
+              <mat-panel-description>
+                {{ entidad.direccion }} ({{panelOpenState() ? 'abierta' : 'cerrada'}})
+                <mat-icon>account_circle</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div class="section-empresas">
+              <p>{{ entidad.descripcion }}</p>
+
+              <div class="row" style="text-align: center;">
+                <div class="col-6">
+                  <button mat-raised-button color="primary" (click)="modeModal = 'edit'; processAction('Entidades', entidad)" [disabled]="userLogin.rol == 2" type="button">Editar Empresa</button>
+                </div>
+                <div class="col-6">
+                  <button mat-raised-button color="warn" (click)="deleteEntidades(entidad)" [disabled]="listEmpleados.length > 0 || userLogin.rol == 2" type="button">Eliminar Empresa</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-empleados">
+              <h1>Seccion empleados</h1>
+
+              <div class="row section-empleado-new">
+                <div class="col-12">
+                  <button mat-raised-button color="primary" (click)="modeModal = 'new'; processAction('Empleados', {idEntidad: entidad.idEntidad})" [disabled]="userLogin.rol == 2" type="button">Crear Empleado</button>
+                </div>
+              </div>
+
+              <div *ngIf="listEmpleados.length === 0">
+                La empresa {{ entidad.entidad }} no cuenta con empleados asociados a la misma, por favor cree un nuevo Empleado desde el boton crear
+              </div>
+  
+              <div class="row">
+                <div *ngFor="let empleado of listEmpleados" class="col-3">
+                  <mat-card class="example-card" appearance="outlined">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image">
+                        <mat-icon>account_circle</mat-icon>
+                      </div>
+                      <mat-card-title>{{ empleado.nombres }}</mat-card-title>
+                      <mat-card-subtitle> {{ empleado.apellidos }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="/assets/img/profile.png" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                      <p>
+                        Perfil de prueba, se rellena información ya que no se creo un campo descripción en la tabla
+                        de Empleados, se agrega texto con fines de estetica ya que se ve muy vacia la card sin el texto
+                        general
+                        
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions style="justify-content: center;">
+                      <button color="primary" mat-button (click)="modeModal = 'edit'; processAction('Empleados', empleado)" [disabled]="userLogin.rol == 2">Editar</button>
+                      <button mat-button [disabled]="userLogin.rol == 2" (click)="deleteEmpleados(empleado)">Eiminar</button>
+                    </mat-card-actions>
+                  </mat-card>
+                  <!-- <article class="empleados" color="primary">
+                    <mat-icon>account_circle</mat-icon>
+                    <div>
+                      {{ empleado.nombres }} {{ empleado.apellidos }}
+                  </div>
+                  <div>
+                    fecha Ingreso
+                  </div>
+                  <span>
+                    <mat-icon>account_circle</mat-icon>
+                  </span>
+                  </article> -->
+                  
+                </div>
+              </div>
+            </div>
+            
+
+            
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+</div>
+</section>
+
+<screen-footer></screen-footer>
+
+<screen-modal id="idModalFormulario">
+  <screen-formulary
+    *ngIf="showModal"
+    [nombreTabla]="nombreTabla"
+    [dataElement]="dataElement"
+    (saveForm)="saveForm($event)"
+    (returnForm)="modalClose()"
+  ></screen-formulary>
+</screen-modal>
